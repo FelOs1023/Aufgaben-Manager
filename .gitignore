@@ -3,3 +3,5 @@ config/SaveData.json
 src/__pycache__
 
 .vscode
+
+To-Do.txt
