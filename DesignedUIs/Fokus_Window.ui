@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="FokusBeschreibungInput1">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -35,7 +35,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Beschreibung für Fokus 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="FokusTitelInput1">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -53,7 +53,7 @@ p, li { white-space: pre-wrap; }
     <string>Fokus Titel 1</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="FokusTitelText1">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -71,7 +71,7 @@ p, li { white-space: pre-wrap; }
     <string>Fokus 1:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox">
+  <widget class="QComboBox" name="FokusPrioInput1">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -96,7 +96,7 @@ p, li { white-space: pre-wrap; }
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="FokusTitelText2">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -114,7 +114,7 @@ p, li { white-space: pre-wrap; }
     <string>Fokus 2:</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_2">
+  <widget class="QTextEdit" name="FokusBeschreibungInput2">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -136,7 +136,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Beschreibung für Fokus 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
+  <widget class="QComboBox" name="FokusPrioInput2">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -161,7 +161,7 @@ p, li { white-space: pre-wrap; }
     </property>
    </item>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="FokusTitelInput3">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -179,7 +179,7 @@ p, li { white-space: pre-wrap; }
     <string>Fokus Titel 2</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_3">
+  <widget class="QComboBox" name="FokusPrioInput3">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -204,7 +204,7 @@ p, li { white-space: pre-wrap; }
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="FokusTitelText3">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -222,7 +222,7 @@ p, li { white-space: pre-wrap; }
     <string>Fokus 3:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="FokusTitelInput3_2">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -240,7 +240,7 @@ p, li { white-space: pre-wrap; }
     <string>Fokus Titel 3</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit_3">
+  <widget class="QTextEdit" name="FokusBeschreibungInput3">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -263,7 +263,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="SaveButton">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -281,7 +281,7 @@ p, li { white-space: pre-wrap; }
     <string>save</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="SaveCloseButton">
    <property name="geometry">
     <rect>
      <x>140</x>

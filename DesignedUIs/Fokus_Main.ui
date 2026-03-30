@@ -20,7 +20,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QToolButton" name="toolButton">
+   <widget class="QToolButton" name="AddButton">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -44,7 +44,7 @@
      <string>Add</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_2">
+   <widget class="QToolButton" name="ShowButton">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -68,7 +68,7 @@
      <string>Show</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_3">
+   <widget class="QToolButton" name="EditButton">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -92,7 +92,7 @@
      <string>Edit</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_4">
+   <widget class="QToolButton" name="DeleteButton">
     <property name="geometry">
      <rect>
       <x>310</x>
@@ -116,7 +116,7 @@
      <string>Delete</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="toolButton_5">
+   <widget class="QToolButton" name="FokusButton">
     <property name="geometry">
      <rect>
       <x>10</x>
