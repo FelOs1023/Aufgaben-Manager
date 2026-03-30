@@ -3,7 +3,7 @@ import tkinter.ttk as ttk
 from tkinter import *
 import json, os
 
-SaveData = "FokusProjekt/config/SaveData.json"
+SaveData = "config/SaveData.json"
 
 def AddSave(FullSaveData):
     print("Saving task...\n")
