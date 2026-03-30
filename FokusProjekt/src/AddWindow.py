@@ -8,7 +8,7 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtCore import QDate
-import FokusProjekt.src.Saving as Saving
+import Saving
 
 class Ui_Add_Window(object):
     
