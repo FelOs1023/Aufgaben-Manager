@@ -7,9 +7,33 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import Saving
 
 
 class Ui_Fokus_Window(object):
+    def get_Fokus(self):
+        Fokus1 = {
+            "Fokus Titel": self.FokusTitelInput1.text(),
+            "Fokus Beschreibung": self.FokusBeschreibungInput1.toPlainText(),
+            "Fokus Priorität": self.FokusPrioInput1.currentText()
+        }
+        Fokus2 = {
+            "Fokus Titel": self.FokusTitelInput3.text(),
+            "Fokus Beschreibung": self.FokusBeschreibungInput2.toPlainText(),
+            "Fokus Priorität": self.FokusPrioInput2.currentText()
+        }
+        Fokus3 = {
+            "Fokus Titel": self.FokusTitelInput3_2.text(),
+            "Fokus Beschreibung": self.FokusBeschreibungInput3.toPlainText(),
+            "Fokus Priorität": self.FokusPrioInput3.currentText()
+        }
+        FullFokusData = {
+            "Fokus 1": Fokus1,
+            "Fokus 2": Fokus2,
+            "Fokus 3": Fokus3
+        }
+        Saving.FokusSave(FullFokusData)
+
     def setupUi(self, Fokus_Window):
         Fokus_Window.setObjectName("Fokus_Window")
         Fokus_Window.resize(429, 843)
@@ -85,13 +109,13 @@ class Ui_Fokus_Window(object):
         font.setPointSize(10)
         self.FokusBeschreibungInput3.setFont(font)
         self.FokusBeschreibungInput3.setObjectName("FokusBeschreibungInput3")
-        self.SaveButton = QtWidgets.QPushButton(parent=Fokus_Window)
+        self.SaveButton = QtWidgets.QPushButton(parent=Fokus_Window, clicked=self.get_Fokus)
         self.SaveButton.setGeometry(QtCore.QRect(290, 790, 131, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.SaveButton.setFont(font)
         self.SaveButton.setObjectName("SaveButton")
-        self.SaveCloseButton = QtWidgets.QPushButton(parent=Fokus_Window)
+        self.SaveCloseButton = QtWidgets.QPushButton(parent=Fokus_Window, clicked=lambda: [self.get_Fokus(), Fokus_Window.close()])
         self.SaveCloseButton.setGeometry(QtCore.QRect(140, 790, 131, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
