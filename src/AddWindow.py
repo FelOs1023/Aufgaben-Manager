@@ -14,7 +14,6 @@ class Ui_Add_Window(object):
 
     def get_info(self):
         correctDate = self.AddDatumInput.selectedDate().toString("dd.MM.yyyy")
-
         FullSaveData = {
             "Task Title": self.AddTitelInput.text(),
             "Task Description": self.AddBeschreibungsInput.toPlainText(),
