@@ -7,16 +7,43 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+import Saving
 
 
 class Ui_Edit_Window(object):
-    
-    def set_date(self):
-        self.EditEndKalender.setSelectedDate(QtCore.QDate(2024, 6, 30))
-        self.EditTitelInput.setText("Test")
-        if self.EditFokusCheck.isChecked():
-            self.EditFokusKalender.setSelectedDate(QtCore.QDate(2024, 10, 15))
+    def Loading(self):
+        Saving.loadSave()
 
+    def set_data(self):
+        data = Saving.loadSave()
+
+        try:
+            task = data[0]["Tasks"]["Task1"]
+        except Exception as e:
+            print(f"Fehler: {e}")
+            return
+
+        self.EditTitelInput.setText(task.get("Task Title", ""))
+
+        self.EditBeschreibungInput.setPlainText(task.get("Task Description", ""))
+
+        RawEndDate = task.get("Task End Date", "")
+        if RawEndDate:
+            CorrectEndDate = QtCore.QDate.fromString(RawEndDate, "dd.MM.yyyy")
+            self.EditEndKalender.setSelectedDate(CorrectEndDate)
+
+
+        RawFokusDate = task.get("Task Fokus Date", "")
+        if RawFokusDate:
+            CorrectFokusDate = QtCore.QDate.fromString(RawFokusDate, "dd.MM.yyyy")
+            self.EditFokusKalender.setSelectedDate(CorrectFokusDate)
+            self.EditFokusCheck.setChecked(True)
+        else:
+            self.EditFokusCheck.setChecked(False)
+
+        self.EditPrioAuswahl.setCurrentText(task.get("Task Priority", ""))
+
+        self.EditStatusAuswahl.setCurrentText(task.get("Task Status", ""))
 
     def setupUi(self, Edit_Window):
         Edit_Window.setObjectName("Edit_Window")
@@ -89,7 +116,7 @@ class Ui_Edit_Window(object):
         font.setPointSize(16)
         self.EditPrioTitel.setFont(font)
         self.EditPrioTitel.setObjectName("EditPrioTitel")
-        self.EditSaveButton = QtWidgets.QPushButton(parent=Edit_Window, clicked=lambda: self.set_date())
+        self.EditSaveButton = QtWidgets.QPushButton(parent=Edit_Window, clicked=lambda: self.set_data())
         self.EditSaveButton.setGeometry(QtCore.QRect(530, 640, 131, 41))
         font = QtGui.QFont()
         font.setPointSize(14)
