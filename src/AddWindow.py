@@ -28,8 +28,18 @@ class Ui_Add_Window(object):
             "Task Status": self.AddStatusAsuwahl.currentText()
         }
         Saving.AddSave(FullSaveData)
+        self.clearInputs()
 
         #print(QDate.fromString(correctDate, "dd.MM.yyyy"))
+
+    def clearInputs(self):
+        self.AddTitelInput.clear()
+        self.AddBeschreibungInput.clear()
+        #self.AddEndDatumKalender.setSelectedDate(QtCore.QDate.currentDate())
+        #self.AddFokusKalender.setSelectedDate(QtCore.QDate.currentDate())
+        self.AddPrioAuswahl.setCurrentIndex(0)
+        self.AddStatusAsuwahl.setCurrentIndex(0)
+        self.AddFokusCheck.setChecked(False)
 
     def setupUi(self, Add_Window):
         Add_Window.setObjectName("Add_Window")
