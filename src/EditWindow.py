@@ -7,33 +7,23 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-import Saving
+import Saving, json
 
 
 class Ui_Edit_Window(object):
-    def Loading(self):
-        Saving.loadSave()
-
     def set_data(self):
-        data = Saving.loadSave()
+        Saving.loadInfo(self)
 
-        try:
-            task = data[0]["Tasks"]["Task1"]
-        except Exception as e:
-            print(f"Fehler: {e}")
-            return
+        self.EditTitelInput.setText(self.title)
 
-        self.EditTitelInput.setText(task.get("Task Title", ""))
+        self.EditBeschreibungInput.setPlainText(self.description)
 
-        self.EditBeschreibungInput.setPlainText(task.get("Task Description", ""))
-
-        RawEndDate = task.get("Task End Date", "")
+        RawEndDate = self.end_date
         if RawEndDate:
             CorrectEndDate = QtCore.QDate.fromString(RawEndDate, "dd.MM.yyyy")
             self.EditEndKalender.setSelectedDate(CorrectEndDate)
 
-
-        RawFokusDate = task.get("Task Fokus Date", "")
+        RawFokusDate = self.fokus_date
         if RawFokusDate:
             CorrectFokusDate = QtCore.QDate.fromString(RawFokusDate, "dd.MM.yyyy")
             self.EditFokusKalender.setSelectedDate(CorrectFokusDate)
@@ -41,9 +31,9 @@ class Ui_Edit_Window(object):
         else:
             self.EditFokusCheck.setChecked(False)
 
-        self.EditPrioAuswahl.setCurrentText(task.get("Task Priority", ""))
+        self.EditPrioAuswahl.setCurrentText(self.priority)
 
-        self.EditStatusAuswahl.setCurrentText(task.get("Task Status", ""))
+        self.EditStatusAuswahl.setCurrentText(self.status)
 
     def setupUi(self, Edit_Window):
         Edit_Window.setObjectName("Edit_Window")
