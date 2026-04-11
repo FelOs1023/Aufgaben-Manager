@@ -16,8 +16,8 @@ Das Erstellen von Aufgaben ist möglich. Die Eingegebenen Daten werden erfolgrei
 # Features in Bearbeitung
 Das Editieren von Aufgaben soll die Informationen in die Felder einsetzen und änderbar machen. Beim speichern soll dann der angegebene Datensatz geändert werden statt das ein komplett neuer Datensatz erstellt wird. 
 
-Das Auswähl Fenster soll auch filter besitzen um die Suche zu vereinfachen falls zu viele Aufgaben im System sind.
+Das Auswähl Fenster soll alle gespeicherten Aufgaben beinhalten und diese anzeigen. Die ausgewählte Aufgabe wird dann in das Edit Fenster gesetzt und kann von dort bearbeitet, gelöscht oder einfach nur angeguckt werden. 
 
-Das Löschen soll möglich sein im Bearbeitungsfenster.
+Das Löschen soll möglich sein im Bearbeitungsfenster und den ausgewählten Datensatz komplett aus dem Speicher entfernen.
 
 Das Fokus Fenster soll eine Aufgabe für einen bestimmten Tag fokussieren. Wenn beim erstellen einer Aufgabe ein Fokusdatum angegeben wurde wird an diesem Datum die Aufgabe automatisch im Fokus Fenster auftauchen. 
