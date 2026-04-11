@@ -1,5 +1,7 @@
 config/SaveData.json
 
 src/__pycache__
-src/trash
-src/To-Do
+
+.vscode
+
+To-Do.txt
