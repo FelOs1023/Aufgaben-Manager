@@ -14,7 +14,7 @@ Eine Aufgabe kann die folgenden Informationen halten:
 Das Erstellen von Aufgaben ist möglich. Die Eingegebenen Daten werden erfolgreich in der vorgesehenen JSON formatiert gespeichert.
 
 # Features in Bearbeitung
-Das Editieren von Aufgaben soll die bearbeiteten Felder ersetzten statt einen neuen Datensatz zu speichern.
+Das Editieren von Aufgaben soll die Informationen in die Felder einsetzen und änderbar machen. Beim speichern soll dann der angegebene Datensatz geändert werden statt das ein komplett neuer Datensatz erstellt wird. 
 
 Das Auswähl Fenster soll auch filter besitzen um die Suche zu vereinfachen falls zu viele Aufgaben im System sind.
 
