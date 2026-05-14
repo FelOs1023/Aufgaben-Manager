@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="QListWidget" name="Select_List">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -22,23 +22,8 @@
      <height>511</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>New Item</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>New Item</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>New Item</string>
-    </property>
-   </item>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Select_List_Button">
    <property name="geometry">
     <rect>
      <x>90</x>
