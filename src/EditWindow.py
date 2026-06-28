@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 import Saving, json
+from AddWindow import Ui_Add_Window
 
 
 class Ui_Edit_Window(object):
@@ -8,14 +9,78 @@ class Ui_Edit_Window(object):
             data = json.load(file)
 
         return data
+    
+    def getEditedData(self):
+        if self.EditFokusCheck.isChecked():
+            FokusDate = self.EditFokusKalender.selectedDate().toString("dd.MM.yyyy")
+        else:
+            FokusDate = ""
+
+        return {
+            "Task Title": self.EditTitelInput.text(),
+            "Task Description": self.EditBeschreibungInput.toPlainText(),
+            "Task End Date": self.EditEndKalender.selectedDate().toString("dd.MM.yyyy"),
+            "Task Fokus Date": FokusDate,
+            "Task Priority": self.EditPrioAuswahl.currentText(),
+            "Task Status": self.EditStatusAuswahl.currentText()
+        }
+
+    def saveEdit(self, Edit_Window):
+        if not hasattr(self, "task_key"):
+            return
+
+        data = self.loadJson()
+
+        for item in data:
+            tasks = item.get("Tasks", {})
+            if self.task_key in tasks:
+                tasks[self.task_key] = self.getEditedData()
+                break
+
+        with open("config/SaveData.json", "w", encoding="utf-8") as file:
+            json.dump(data, file, indent=4)
+
+        if hasattr(self, "owner") and hasattr(self.owner, "refreshList"):
+            self.owner.refreshList()
+
+        Edit_Window.close()
+
+    def deleteSaveData(self, Edit_Window):
+        if not hasattr(self, "task_key"):
+            return
+
+        confirm = QtWidgets.QMessageBox.question(
+            None,
+            "Löschen",
+            "Soll diese Aufgabe wirklich gelöscht werden?"
+        )
+        if confirm != QtWidgets.QMessageBox.StandardButton.Yes:
+            return
+
+        data = self.loadJson()
+
+        for item in data:
+            tasks = item.get("Tasks", {})
+            if self.task_key in tasks:
+                del tasks[self.task_key]
+                break
+
+        with open("config/SaveData.json", "w", encoding="utf-8") as file:
+            json.dump(data, file, indent=4)
+
+        if hasattr(self, "owner") and hasattr(self.owner, "refreshList"):
+            self.owner.refreshList()
+
+        Edit_Window.close()
 
     def openWindow(self, selected_item):
         self.editWindow = QtWidgets.QDialog()
         self.ui = Ui_Edit_Window()
+        self.ui.owner = self
         self.ui.setupUi(self.editWindow)
         self.ui.set_data(selected_item)
         self.editWindow.show()
-        
+
     def set_data(self, selected_item):
         if selected_item:
             SearchTitle = selected_item.text()
@@ -23,6 +88,7 @@ class Ui_Edit_Window(object):
             for item in self.loadJson():
                 for task_name, task in item.get("Tasks", {}).items():
                     if task.get("Task Title") == SearchTitle:
+                        self.task_key = task_name
                         self.title = task.get("Task Title")
                         self.description = task.get("Task Description")
                         self.end_date = task.get("Task End Date")
@@ -122,7 +188,7 @@ class Ui_Edit_Window(object):
         font.setPointSize(16)
         self.EditPrioTitel.setFont(font)
         self.EditPrioTitel.setObjectName("EditPrioTitel")
-        self.EditSaveButton = QtWidgets.QPushButton(parent=Edit_Window)
+        self.EditSaveButton = QtWidgets.QPushButton(parent=Edit_Window, clicked=lambda: self.saveEdit(Edit_Window))
         self.EditSaveButton.setGeometry(QtCore.QRect(530, 640, 131, 41))
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -143,7 +209,7 @@ class Ui_Edit_Window(object):
         font.setPointSize(14)
         self.EditFokusCheck.setFont(font)
         self.EditFokusCheck.setObjectName("EditFokusCheck")
-        self.EditDeleteButton = QtWidgets.QPushButton(parent=Edit_Window)
+        self.EditDeleteButton = QtWidgets.QPushButton(parent=Edit_Window, clicked=lambda: self.deleteSaveData(Edit_Window))
         self.EditDeleteButton.setGeometry(QtCore.QRect(10, 640, 131, 41))
         font = QtGui.QFont()
         font.setPointSize(14)
