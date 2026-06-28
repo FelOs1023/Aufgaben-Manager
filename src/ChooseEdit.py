@@ -23,7 +23,7 @@ class Ui_Choose_to_edit(object):
         if selected_item:
             Ui_Edit_Window.openWindow(self, selected_item)
         else:
-            QtWidgets.QMessageBox.warning(None, "Warnung")
+            QtWidgets.QMessageBox.warning(None, "Warnung", "Bitte zuerst eine Aufgabe auswählen.")
 
     def refreshList(self):
         self.Select_List.clear()
