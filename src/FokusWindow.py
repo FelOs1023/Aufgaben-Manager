@@ -1,9 +1,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
-import json
+import json, Saving
 
 
 class Ui_Fokus_Window(object):
     def loadJson(self):
+        Saving.ensureSavedata()
         with open("config/SaveData.json", "r", encoding="utf-8") as file:
             data = json.load(file)
 

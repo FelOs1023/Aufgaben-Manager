@@ -5,6 +5,7 @@ from AddWindow import Ui_Add_Window
 
 class Ui_Edit_Window(object):
     def loadJson(self):
+        Saving.ensureSavedata()
         with open("config/SaveData.json", "r", encoding="utf-8") as file:
             data = json.load(file)
 

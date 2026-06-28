@@ -4,12 +4,14 @@ from EditWindow import Ui_Edit_Window
 
 class Ui_Choose_to_edit(object):
     def loadJson(self):
+        Saving.ensureSavedata()
         with open("config/SaveData.json", "r", encoding="utf-8") as file:
             data = json.load(file)
 
         return data
 
     def LoadItems(self):
+        Saving.ensureSavedata()
         with open("config/SaveData.json", "r", encoding="utf-8") as file:
             data = json.load(file)
 

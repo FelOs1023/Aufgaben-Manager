@@ -5,14 +5,22 @@ import json, os
 
 SaveData = "config/SaveData.json"
 
+def ensureSavedata():
+    directory = os.path.dirname(SaveData)
+    if directory and not os.path.exists(directory):
+        os.makedirs(directory)
+
+    if not os.path.exists(SaveData):
+        with open(SaveData, "w", encoding="utf-8") as file:
+            json.dump([{"Tasks": {}}], file, indent=4)
+
 def AddSave(FullSaveData):
     print("Saving task...\n")
 
-    if os.path.exists(SaveData):
-        with open(SaveData, "r", encoding="utf-8") as file:
-            data = json.load(file)
-    else:
-        data = []
+    ensureSavedata()
+
+    with open(SaveData, "r", encoding="utf-8") as file:
+        data = json.load(file)
 
     if not data:
         data.append({"Tasks": {}})
