@@ -19,7 +19,13 @@ def AddSave(FullSaveData):
     elif "Tasks" not in data[0]:
         data[0]["Tasks"] = {}
 
-    task_key = f"Task{len(data[0]['Tasks']) + 1}"
+    existing_numbers = [
+        int(key.removeprefix("Task"))
+        for key in data[0]["Tasks"]
+        if key.removeprefix("Task").isdigit()
+    ]
+    next_number = max(existing_numbers, default=0) + 1
+    task_key = f"Task{next_number}"
     data[0]["Tasks"][task_key] = FullSaveData
 
     print("Task saved\n")
