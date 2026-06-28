@@ -25,26 +25,28 @@ class Ui_Choose_to_edit(object):
         else:
             QtWidgets.QMessageBox.warning(None, "Warnung")
 
-    def SelectAndClose(self, choose_to_edit):
-        choose_to_edit.close()
-        self.selecting()
-        
+    def refreshList(self):
+        self.Select_List.clear()
+        self.LoadItems()
 
     def setupUi(self, Choose_to_edit):
         Choose_to_edit.setObjectName("Choose_to_edit")
         Choose_to_edit.resize(316, 578)
+
+        self.verticalLayout = QtWidgets.QVBoxLayout(Choose_to_edit)
+
         self.Select_List = QtWidgets.QListWidget(parent=Choose_to_edit)
-        self.Select_List.setGeometry(QtCore.QRect(10, 10, 291, 511))
         self.Select_List.setObjectName("Select_List")
+        self.verticalLayout.addWidget(self.Select_List)
 
         self.LoadItems()
 
-        self.Select_List_Button = QtWidgets.QPushButton(parent=Choose_to_edit, clicked=lambda: self.SelectAndClose(Choose_to_edit))
-        self.Select_List_Button.setGeometry(QtCore.QRect(90, 540, 121, 31))
+        self.Select_List_Button = QtWidgets.QPushButton(parent=Choose_to_edit, clicked=lambda: self.selecting())
         font = QtGui.QFont()
         font.setPointSize(12)
         self.Select_List_Button.setFont(font)
         self.Select_List_Button.setObjectName("Select_List_Button")
+        self.verticalLayout.addWidget(self.Select_List_Button)
 
         self.retranslateUi(Choose_to_edit)
         QtCore.QMetaObject.connectSlotsByName(Choose_to_edit)
